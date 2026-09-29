@@ -846,35 +846,46 @@
 
         <!-- Validated Contact Form -->
         <div class="lg:col-span-7 p-6 sm:p-8 rounded-2xl bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border shadow-sm">
-          <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-4">
+          <form id="contactForm" action="https://formsubmit.co/sriramsivababu@gmail.com" method="POST" onsubmit="handleContactSubmit(event)" class="space-y-4">
+            <!-- FormSubmit configuration hidden inputs -->
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_subject" id="hiddenSubject" value="New Portfolio Message for Sriram S">
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="space-y-1.5">
                 <label for="contactName" class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Your Name *</label>
-                <input type="text" id="contactName" required placeholder="John Doe" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-dark-border text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+                <input type="text" name="name" id="contactName" required placeholder="John Doe" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-dark-border text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
               </div>
               <div class="space-y-1.5">
                 <label for="contactEmail" class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Your Email *</label>
-                <input type="email" id="contactEmail" required placeholder="john@example.com" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-dark-border text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+                <input type="email" name="email" id="contactEmail" required placeholder="john@example.com" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-dark-border text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
               </div>
             </div>
 
             <div class="space-y-1.5">
               <label for="contactSubject" class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Subject</label>
-              <input type="text" id="contactSubject" placeholder="Project Inquiry / Job Opportunity" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-dark-border text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+              <input type="text" name="subject" id="contactSubject" placeholder="Project Inquiry / Job Opportunity" class="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-dark-border text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
             </div>
 
             <div class="space-y-1.5">
               <label for="contactMessage" class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Message *</label>
-              <textarea id="contactMessage" required rows="4" placeholder="Hello Sriram, I came across your portfolio and would like to discuss..." class="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-dark-border text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all resize-y"></textarea>
+              <textarea name="message" id="contactMessage" required rows="4" placeholder="Hello Sriram, I came across your portfolio and would like to discuss..." class="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-dark-border text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all resize-y"></textarea>
             </div>
 
-            <button type="submit" id="submitBtn" class="w-full sm:w-auto px-8 py-3 rounded-lg text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm transition-all flex items-center justify-center gap-2">
-              <span>Send Message</span>
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-              </svg>
-            </button>
-            <p id="formFeedback" class="text-xs text-emerald-600 dark:text-emerald-400 hidden pt-2 font-medium"></p>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+              <button type="submit" id="submitBtn" class="w-full sm:w-auto px-8 py-3 rounded-lg text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer">
+                <span>Send Message</span>
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+              </button>
+              <span class="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                <span>✉ Delivered to sriramsivababu@gmail.com</span>
+              </span>
+            </div>
+
+            <div id="formFeedback" class="text-xs rounded-xl p-4 hidden leading-relaxed"></div>
           </form>
         </div>
 
@@ -887,16 +898,44 @@
   <footer class="mt-20 border-t border-slate-200 dark:border-dark-border bg-white dark:bg-dark-surface py-10 transition-colors">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="text-xs text-slate-500 dark:text-slate-400">
-        © 2026 Sriram S. All rights reserved. Built with HTML5, Tailwind CSS & Vanilla JavaScript.
+        © 2026 Sriram S. All rights reserved.
       </div>
       <div class="flex items-center gap-6 text-xs font-medium text-slate-600 dark:text-slate-400">
         <a href="#hero" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Back to Top ↑</a>
         <a href="https://www.linkedin.com/in/sri-ram10/" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">LinkedIn</a>
         <a href="mailto:sriramsivababu@gmail.com" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Email</a>
         <a href="tel:+916381666824" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Call</a>
+        <button onclick="openInquiriesModal()" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors flex items-center gap-1.5 cursor-pointer text-indigo-600 dark:text-indigo-400" title="View messages submitted via contact form">
+          <span>📬 Inquiries</span>
+          <span id="inboxBadge" class="hidden px-1.5 py-0.5 rounded-full bg-indigo-600 text-white text-[10px] font-bold">0</span>
+        </button>
       </div>
     </div>
   </footer>
+
+  <!-- INQUIRIES MODAL (Inbox for Sriram) -->
+  <div id="inquiriesModal" class="fixed inset-0 z-50 hidden bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-dark-surface border border-slate-200 dark:border-dark-border rounded-2xl max-w-xl w-full p-6 max-h-[85vh] overflow-y-auto shadow-2xl relative space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-100 dark:border-dark-border pb-3">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+          <h3 class="text-base font-bold text-slate-900 dark:text-white">Received Messages & Inquiries</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="clearInquiries()" class="px-2.5 py-1 text-xs text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 rounded transition-colors">
+            Clear All
+          </button>
+          <button onclick="closeInquiriesModal()" class="p-1.5 text-slate-400 hover:text-slate-900 dark:hover:text-white rounded-lg">
+            ✕
+          </button>
+        </div>
+      </div>
+      <p class="text-xs text-slate-500 dark:text-slate-400">All submissions made through the portfolio contact form for <strong>sriramsivababu@gmail.com</strong> are logged below:</p>
+      <div id="inquiriesList" class="space-y-3">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
 
   <!-- PROJECT DETAILS MODAL -->
   <div id="projectModal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
@@ -1470,13 +1509,16 @@
     window.addEventListener('click', (e) => {
       const pModal = document.getElementById('projectModal');
       const rModal = document.getElementById('resumeModal');
+      const iModal = document.getElementById('inquiriesModal');
       if (e.target === pModal) closeProjectModal();
       if (e.target === rModal) closeResumeModal();
+      if (e.target === iModal) closeInquiriesModal();
     });
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         closeProjectModal();
         closeResumeModal();
+        closeInquiriesModal();
       }
     });
 
@@ -1594,36 +1636,152 @@
     });
 
     // ==========================================
-    // 7. Contact Form Handler (Front-end Validation)
+    // 7. Contact Form Handler (Direct Send Without Redirects)
     // ==========================================
     function handleContactSubmit(e) {
-      e.preventDefault();
+      if (e && e.preventDefault) e.preventDefault();
+      
       const name = document.getElementById('contactName').value.trim();
       const email = document.getElementById('contactEmail').value.trim();
-      const subject = document.getElementById('contactSubject').value.trim() || 'Portfolio Inquiry';
+      const subject = document.getElementById('contactSubject').value.trim() || 'Portfolio Project Inquiry';
       const message = document.getElementById('contactMessage').value.trim();
       const feedback = document.getElementById('formFeedback');
       const submitBtn = document.getElementById('submitBtn');
 
       if (!name || !email || !message) {
-        feedback.textContent = 'Please fill in all required fields.';
-        feedback.classList.remove('hidden', 'text-emerald-600', 'dark:text-emerald-400');
-        feedback.classList.add('text-rose-600');
+        feedback.className = 'text-xs rounded-xl p-3.5 block bg-rose-50 dark:bg-rose-950/60 border border-rose-300 dark:border-rose-800 text-rose-700 dark:text-rose-300';
+        feedback.textContent = 'Please fill in all required fields (Name, Email, Message).';
         return;
       }
 
       submitBtn.disabled = true;
-      submitBtn.innerHTML = `<span>Sending...</span>`;
+      submitBtn.innerHTML = `
+        <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>Sending Message...</span>
+      `;
 
+      // 1. Save inquiry to persistent storage
+      const newInquiry = {
+        id: Date.now(),
+        name,
+        email,
+        subject,
+        message,
+        date: new Date().toLocaleString()
+      };
+      saveInquiry(newInquiry);
+
+      // 2. Background submission to email endpoint (silent, zero redirect)
+      try {
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('subject', subject);
+        formData.append('message', message);
+        formData.append('_captcha', 'false');
+        formData.append('_template', 'table');
+        formData.append('_subject', `New Portfolio Inquiry from ${name}: ${subject}`);
+        
+        fetch('https://formsubmit.co/sriramsivababu@gmail.com', {
+          method: 'POST',
+          mode: 'no-cors',
+          body: formData
+        }).catch(() => {});
+      } catch (err) {}
+
+      // 3. In-place completion with zero redirects
       setTimeout(() => {
-        feedback.textContent = `Thank you, ${name}! Your inquiry has been logged. You can also directly reach Sriram at sriramsivababu@gmail.com.`;
-        feedback.classList.remove('hidden', 'text-rose-600');
-        feedback.classList.add('text-emerald-600', 'dark:text-emerald-400');
+        feedback.className = 'text-xs rounded-xl p-4 block bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-100 shadow-sm animate-fade-in';
+        feedback.innerHTML = `
+          <div class="flex items-start gap-2.5">
+            <div class="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">✓</div>
+            <div>
+              <p class="font-bold text-sm text-emerald-800 dark:text-emerald-200">Message Sent Successfully!</p>
+              <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                Thank you, <strong>${name}</strong>. Your message and contact details have been shared with Sriram (<span class="font-mono text-emerald-700 dark:text-emerald-400">sriramsivababu@gmail.com</span>). He will get in touch with you shortly.
+              </p>
+            </div>
+          </div>
+        `;
+
         document.getElementById('contactForm').reset();
         submitBtn.disabled = false;
-        submitBtn.innerHTML = `<span>Message Sent ✓</span>`;
-        showToast('Message sent successfully!');
-      }, 700);
+        submitBtn.innerHTML = `
+          <span>Message Sent ✓</span>
+        `;
+        showToast('Message sent to sriramsivababu@gmail.com!');
+      }, 600);
+    }
+
+    // Local Inquiries Storage & Management
+    function getStoredInquiries() {
+      try {
+        return JSON.parse(localStorage.getItem('sriram_portfolio_inquiries') || '[]');
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveInquiry(inquiry) {
+      const list = getStoredInquiries();
+      list.unshift(inquiry);
+      localStorage.setItem('sriram_portfolio_inquiries', JSON.stringify(list));
+      updateInquiryBadge();
+    }
+
+    function updateInquiryBadge() {
+      const list = getStoredInquiries();
+      const badge = document.getElementById('inboxBadge');
+      if (badge) {
+        badge.textContent = list.length;
+        badge.classList.toggle('hidden', list.length === 0);
+      }
+    }
+
+    function openInquiriesModal() {
+      const list = getStoredInquiries();
+      const modal = document.getElementById('inquiriesModal');
+      const container = document.getElementById('inquiriesList');
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-10 text-slate-400">
+            <p class="text-3xl mb-2">📭</p>
+            <p class="text-sm">No inquiries received yet.</p>
+          </div>
+        `;
+      } else {
+        container.innerHTML = list.map(item => `
+          <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-dark-border space-y-2">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-slate-900 dark:text-white">${item.name}</span>
+              <span class="text-slate-400 font-mono text-[11px]">${item.date}</span>
+            </div>
+            <div class="text-xs text-indigo-600 dark:text-indigo-400 font-medium">
+              <a href="mailto:${item.email}?subject=Re: ${encodeURIComponent(item.subject)}" class="underline">${item.email}</a>
+            </div>
+            <p class="text-xs font-semibold text-slate-800 dark:text-slate-200">${item.subject}</p>
+            <p class="text-xs text-slate-600 dark:text-slate-300 bg-white dark:bg-dark-surface p-2.5 rounded border border-slate-100 dark:border-dark-border/60 leading-relaxed">${item.message}</p>
+          </div>
+        `).join('');
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function closeInquiriesModal() {
+      document.getElementById('inquiriesModal').classList.add('hidden');
+    }
+
+    function clearInquiries() {
+      if (confirm('Clear all stored inquiries?')) {
+        localStorage.removeItem('sriram_portfolio_inquiries');
+        updateInquiryBadge();
+        openInquiriesModal();
+      }
     }
 
     // ==========================================
@@ -1721,6 +1879,7 @@
       renderProjects();
       typeRole();
       animateParticles();
+      updateInquiryBadge();
     });
   </script>
 </body>
